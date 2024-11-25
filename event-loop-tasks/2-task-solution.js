@@ -38,7 +38,8 @@ function secondTask() {
   - This callback has the highest priority and will be executed before any other asynchronous callbacks.
 
 2. Scheduling setImmediate(cb-3):
-  - setImmediate(cb-3) schedules "cb-3" to the Check Phase of the event loop, which is processed after the Timers Queue, and therefore, moved to the Check Queue.
+  - setImmediate(cb-3) is registered with the Event Demultiplexer.
+  - The Event Demultiplexer moves "cb-3" to the "Check Queue".
 
 3. Call Stack becomes empty:
   - At this point, all synchronous code is done, and the call stack is empty.

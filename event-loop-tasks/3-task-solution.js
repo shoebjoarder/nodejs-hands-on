@@ -57,13 +57,13 @@ function thirdTask() {
   - The Event Loop first processes the "nextTick Queue", which has the highest priority.
   - "cb-3" from "process.nextTick" is executed: process.nextTick 1 executed
 
-7. Processing the nextTick Queue:
-  - After "cb-3", the Event Loop processes the next callback in the "nextTick Queue".
-  - "cb-2" from "process.nextTick" inside the Promise is executed: "process.nextTick inside Promise"
+7. Processing the Promise Queue:
+  - After "cb-3", the Event Loop processes the next callback in the "Promise Queue".
+  - "cb-1" from "process.nextTick" inside the Promise is executed: "Promise 1 resolved"
 
-8. Processing the Microtasks Queue (Promise Queue):
-  - After the "nextTick Queue" is empty, the Event Loop processes the "Microtasks Queue" (Promise Queue).
-  - "cb-1" from the resolved Promise is executed: "Promise 1 resolved"
+8. Processing the nextTick Queue:
+  - The Event Loop processes the "nextTick Queue", which has the highest priority.
+  - "cb-2" from the resolved Promise is executed: "process.nextTick inside Promise"
 
 9. Processing the Timers Queue:
   - After the "Microtasks Queue" is empty, the Event Loop processes the "Timers Queue".
